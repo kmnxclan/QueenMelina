@@ -6,6 +6,7 @@
   <title>QueenMelina ✨</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     * {
       margin: 0;
@@ -15,33 +16,42 @@
     }
 
     body {
-      background: radial-gradient(circle at top, #ffe3f9 0%, #fff0fa 100%);
-      height: 100vh;
+      background: radial-gradient(circle at top, #fff0fa 0%, #ffe3f8 50%, #ffcced 100%);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
+      height: 100vh;
       overflow: hidden;
-      position: relative;
       color: #fff;
+      position: relative;
     }
 
+    /* --- Title --- */
     h1 {
       font-size: 4rem;
       font-weight: 800;
-      background: linear-gradient(90deg, #ff8bd1, #ff52b8);
+      background: linear-gradient(90deg, #ff7bc9, #ff52b8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 25px rgba(255, 140, 214, 0.6);
-      margin-bottom: 2.5rem;
+      text-shadow: 0 0 30px rgba(255, 143, 220, 0.6);
       animation: float 3s ease-in-out infinite;
       z-index: 2;
     }
 
+    .subtitle {
+      color: #ff8fd8;
+      font-size: 1.1rem;
+      margin-top: 0.3rem;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+    }
+
+    /* --- Buttons --- */
     .links {
       display: flex;
       flex-direction: column;
-      gap: 1.4rem;
+      gap: 1.3rem;
       align-items: center;
       z-index: 2;
     }
@@ -51,21 +61,33 @@
       align-items: center;
       justify-content: center;
       gap: 14px;
-      background: linear-gradient(135deg, #ff5ec4, #ff9de2);
+      background: linear-gradient(135deg, #ff64c5, #ff9ee3);
       color: #fff;
       border: none;
-      padding: 1rem 3rem;
-      font-size: 1.3rem;
+      padding: 1.1rem 3.2rem;
+      font-size: 1.25rem;
       font-weight: 600;
-      border-radius: 50px;
+      border-radius: 60px;
       cursor: pointer;
-      box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
+      box-shadow: 0 8px 25px rgba(255, 115, 180, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.2);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
+      backdrop-filter: blur(6px);
+      transform: perspective(600px) translateZ(0);
       animation: fadeInUp 1s ease forwards;
       opacity: 0;
+    }
+
+    .link-btn:nth-child(1) { animation-delay: 0.3s; }
+    .link-btn:nth-child(2) { animation-delay: 0.6s; }
+    .link-btn:nth-child(3) { animation-delay: 0.9s; }
+    .link-btn:nth-child(4) { animation-delay: 1.2s; }
+
+    .link-btn:hover {
+      transform: perspective(600px) translateZ(10px) scale(1.08);
+      box-shadow: 0 0 35px rgba(255, 105, 180, 0.8);
     }
 
     .link-btn::before {
@@ -77,36 +99,56 @@
       height: 100%;
       background: rgba(255,255,255,0.25);
       transform: skewX(-20deg);
-      transition: left 0.4s ease;
+      transition: left 0.5s ease;
     }
 
     .link-btn:hover::before {
       left: 100%;
     }
 
-    .link-btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 40px rgba(255, 105, 180, 0.9);
-    }
-
-    .link-btn img {
-      width: 22px;
-      height: 22px;
-      filter: brightness(100) saturate(0);
-    }
-
     .link-btn i {
       font-size: 1.4rem;
     }
 
-    .floating-bubbles span {
+    .link-btn img {
+      width: 24px;
+      height: 24px;
+      filter: brightness(0) invert(1);
+    }
+
+    /* --- Sparkle effect --- */
+    .sparkle {
       position: absolute;
-      bottom: -100px;
-      width: 25px;
-      height: 25px;
-      background: rgba(255, 105, 180, 0.2);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .sparkle span {
+      position: absolute;
+      background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,192,240,0.4) 60%, transparent 100%);
       border-radius: 50%;
-      animation: rise 12s infinite ease-in;
+      animation: sparkle 6s infinite ease-in-out;
+      opacity: 0.8;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+      50% { transform: translateY(-15px) scale(1.3); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      0% { transform: translateY(30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     footer {
@@ -115,32 +157,13 @@
       font-size: 0.9rem;
       color: #ff9dd8;
       letter-spacing: 1px;
+      z-index: 2;
     }
-
-    @keyframes rise {
-      0% { transform: translateY(0) scale(0.8); opacity: 0.6; }
-      100% { transform: translateY(-110vh) scale(1.6); opacity: 0; }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    @keyframes fadeInUp {
-      0% { transform: translateY(30px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-
-    /* Delay each button */
-    .link-btn:nth-child(1) { animation-delay: 0.3s; }
-    .link-btn:nth-child(2) { animation-delay: 0.6s; }
-    .link-btn:nth-child(3) { animation-delay: 0.9s; }
-    .link-btn:nth-child(4) { animation-delay: 1.2s; }
   </style>
 </head>
 <body>
   <h1>👑 QueenMelina</h1>
+  <div class="subtitle">The Official Link Hub</div>
 
   <div class="links">
     <button class="link-btn" onclick="window.open('https://tiktok.com/@queenmelina', '_blank')">
@@ -148,7 +171,8 @@
     </button>
 
     <button class="link-btn" onclick="window.open('https://www.roblox.com/users/1/profile', '_blank')">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Roblox_Logo_2022.svg" alt="Roblox Logo"> Roblox Profile
+      <img src="https://static.wikia.nocookie.net/roblox/images/2/2a/Icon1.png/revision/latest?cb=20220828184201" alt="Roblox Logo">
+      Roblox Profile
     </button>
 
     <button class="link-btn" onclick="window.open('https://youtube.com/@queenmelina', '_blank')">
@@ -160,13 +184,12 @@
     </button>
   </div>
 
-  <div class="floating-bubbles">
-    <span style="left:10%;animation-delay:0s;width:20px;height:20px;"></span>
-    <span style="left:25%;animation-delay:2s;width:25px;height:25px;"></span>
-    <span style="left:40%;animation-delay:4s;width:30px;height:30px;"></span>
-    <span style="left:55%;animation-delay:1s;width:35px;height:35px;"></span>
-    <span style="left:70%;animation-delay:3s;width:28px;height:28px;"></span>
-    <span style="left:85%;animation-delay:5s;width:22px;height:22px;"></span>
+  <div class="sparkle">
+    <span style="top:20%;left:10%;width:10px;height:10px;animation-delay:0s;"></span>
+    <span style="top:60%;left:25%;width:14px;height:14px;animation-delay:1.5s;"></span>
+    <span style="top:40%;left:70%;width:12px;height:12px;animation-delay:2s;"></span>
+    <span style="top:75%;left:50%;width:8px;height:8px;animation-delay:3s;"></span>
+    <span style="top:10%;left:80%;width:16px;height:16px;animation-delay:4s;"></span>
   </div>
 
   <footer>Made with 💖 by QueenMelina</footer>
