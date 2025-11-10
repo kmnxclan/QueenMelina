@@ -15,8 +15,7 @@
     }
 
     body {
-      background: radial-gradient(circle at top, #ffe1f7 0%, #fff0fa 100%);
-      color: #fff;
+      background: radial-gradient(circle at top, #ffe3f9 0%, #fff0fa 100%);
       height: 100vh;
       display: flex;
       align-items: center;
@@ -24,23 +23,25 @@
       flex-direction: column;
       overflow: hidden;
       position: relative;
+      color: #fff;
     }
 
     h1 {
-      font-size: 3.8rem;
+      font-size: 4rem;
       font-weight: 800;
       background: linear-gradient(90deg, #ff8bd1, #ff52b8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 20px rgba(255, 140, 214, 0.5);
-      margin-bottom: 2.2rem;
+      text-shadow: 0 0 25px rgba(255, 140, 214, 0.6);
+      margin-bottom: 2.5rem;
       animation: float 3s ease-in-out infinite;
+      z-index: 2;
     }
 
     .links {
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
+      gap: 1.4rem;
       align-items: center;
       z-index: 2;
     }
@@ -49,20 +50,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      background: linear-gradient(135deg, #ff52b8, #ff8bd1);
+      gap: 14px;
+      background: linear-gradient(135deg, #ff5ec4, #ff9de2);
       color: #fff;
       border: none;
-      padding: 1rem 3.2rem;
+      padding: 1rem 3rem;
       font-size: 1.3rem;
       font-weight: 600;
       border-radius: 50px;
       cursor: pointer;
-      box-shadow: 0 0 25px rgba(255, 105, 180, 0.7);
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
       letter-spacing: 0.5px;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
     }
 
     .link-btn::before {
@@ -72,7 +75,7 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.25);
       transform: skewX(-20deg);
       transition: left 0.4s ease;
     }
@@ -82,8 +85,14 @@
     }
 
     .link-btn:hover {
-      transform: scale(1.1);
+      transform: scale(1.08);
       box-shadow: 0 0 40px rgba(255, 105, 180, 0.9);
+    }
+
+    .link-btn img {
+      width: 22px;
+      height: 22px;
+      filter: brightness(100) saturate(0);
     }
 
     .link-btn i {
@@ -93,11 +102,19 @@
     .floating-bubbles span {
       position: absolute;
       bottom: -100px;
-      width: 30px;
-      height: 30px;
-      background: rgba(255, 105, 180, 0.25);
+      width: 25px;
+      height: 25px;
+      background: rgba(255, 105, 180, 0.2);
       border-radius: 50%;
-      animation: rise 10s infinite ease-in;
+      animation: rise 12s infinite ease-in;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #ff9dd8;
+      letter-spacing: 1px;
     }
 
     @keyframes rise {
@@ -110,13 +127,16 @@
       50% { transform: translateY(-10px); }
     }
 
-    footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9rem;
-      color: #ff9dd8;
-      letter-spacing: 1px;
+    @keyframes fadeInUp {
+      0% { transform: translateY(30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
     }
+
+    /* Delay each button */
+    .link-btn:nth-child(1) { animation-delay: 0.3s; }
+    .link-btn:nth-child(2) { animation-delay: 0.6s; }
+    .link-btn:nth-child(3) { animation-delay: 0.9s; }
+    .link-btn:nth-child(4) { animation-delay: 1.2s; }
   </style>
 </head>
 <body>
@@ -128,7 +148,7 @@
     </button>
 
     <button class="link-btn" onclick="window.open('https://www.roblox.com/users/1/profile', '_blank')">
-      <i class="fa-solid fa-cube"></i> Roblox Profile
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Roblox_Logo_2022.svg" alt="Roblox Logo"> Roblox Profile
     </button>
 
     <button class="link-btn" onclick="window.open('https://youtube.com/@queenmelina', '_blank')">
