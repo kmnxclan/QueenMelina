@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QueenMelina ✨</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -14,7 +15,7 @@
     }
 
     body {
-      background: linear-gradient(135deg, #ffd6f5, #fff0fa);
+      background: radial-gradient(circle at top, #ffe1f7 0%, #fff0fa 100%);
       color: #fff;
       height: 100vh;
       display: flex;
@@ -22,16 +23,17 @@
       justify-content: center;
       flex-direction: column;
       overflow: hidden;
+      position: relative;
     }
 
     h1 {
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       font-weight: 800;
       background: linear-gradient(90deg, #ff8bd1, #ff52b8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 10px rgba(255, 140, 214, 0.6);
-      margin-bottom: 2rem;
+      text-shadow: 0 0 20px rgba(255, 140, 214, 0.5);
+      margin-bottom: 2.2rem;
       animation: float 3s ease-in-out infinite;
     }
 
@@ -40,20 +42,27 @@
       flex-direction: column;
       gap: 1.2rem;
       align-items: center;
+      z-index: 2;
     }
 
     .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
       background: linear-gradient(135deg, #ff52b8, #ff8bd1);
       color: #fff;
       border: none;
-      padding: 1rem 3rem;
+      padding: 1rem 3.2rem;
       font-size: 1.3rem;
+      font-weight: 600;
       border-radius: 50px;
       cursor: pointer;
-      box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.7);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      letter-spacing: 0.5px;
     }
 
     .link-btn::before {
@@ -73,8 +82,12 @@
     }
 
     .link-btn:hover {
-      transform: scale(1.08) rotate(1deg);
-      box-shadow: 0 0 30px rgba(255, 105, 180, 0.8);
+      transform: scale(1.1);
+      box-shadow: 0 0 40px rgba(255, 105, 180, 0.9);
+    }
+
+    .link-btn i {
+      font-size: 1.4rem;
     }
 
     .floating-bubbles span {
@@ -82,29 +95,49 @@
       bottom: -100px;
       width: 30px;
       height: 30px;
-      background: rgba(255, 105, 180, 0.3);
+      background: rgba(255, 105, 180, 0.25);
       border-radius: 50%;
       animation: rise 10s infinite ease-in;
     }
 
     @keyframes rise {
-      0% { transform: translateY(0) scale(0.8); opacity: 0.5; }
-      100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+      0% { transform: translateY(0) scale(0.8); opacity: 0.6; }
+      100% { transform: translateY(-110vh) scale(1.6); opacity: 0; }
     }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #ff9dd8;
+      letter-spacing: 1px;
+    }
   </style>
 </head>
 <body>
   <h1>👑 QueenMelina</h1>
+
   <div class="links">
-    <button class="link-btn" onclick="window.open('https://tiktok.com/@queenmelina', '_blank')">TikTok</button>
-    <button class="link-btn" onclick="window.open('https://instagram.com/queenmelina', '_blank')">Instagram</button>
-    <button class="link-btn" onclick="window.open('https://youtube.com/@queenmelina', '_blank')">YouTube</button>
-    <button class="link-btn" onclick="window.open('https://discord.gg/', '_blank')">Discord</button>
+    <button class="link-btn" onclick="window.open('https://tiktok.com/@queenmelina', '_blank')">
+      <i class="fa-brands fa-tiktok"></i> TikTok
+    </button>
+
+    <button class="link-btn" onclick="window.open('https://www.roblox.com/users/1/profile', '_blank')">
+      <i class="fa-solid fa-cube"></i> Roblox Profile
+    </button>
+
+    <button class="link-btn" onclick="window.open('https://youtube.com/@queenmelina', '_blank')">
+      <i class="fa-brands fa-youtube"></i> YouTube
+    </button>
+
+    <button class="link-btn" onclick="window.open('https://discord.gg/', '_blank')">
+      <i class="fa-brands fa-discord"></i> Discord
+    </button>
   </div>
 
   <div class="floating-bubbles">
@@ -115,6 +148,7 @@
     <span style="left:70%;animation-delay:3s;width:28px;height:28px;"></span>
     <span style="left:85%;animation-delay:5s;width:22px;height:22px;"></span>
   </div>
+
+  <footer>Made with 💖 by QueenMelina</footer>
 </body>
 </html>
- 
