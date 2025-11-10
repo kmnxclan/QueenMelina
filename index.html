@@ -4,104 +4,65 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QueenMelina 💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <style>
-    :root {
-      --pink: #ff8ecf;
-      --light-pink: #ffe6f7;
-      --bg: #fff9fc;
-      --shadow: rgba(255, 122, 200, 0.4);
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: radial-gradient(circle at 20% 20%, var(--light-pink), var(--bg));
-      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top, #ffdee9 0%, #ffeaf4 100%);
+      color: #fff;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      text-align: center;
       overflow: hidden;
       position: relative;
-      color: #333;
     }
 
-    /* Soft background orbs */
-    .orb {
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, var(--pink) 0%, transparent 70%);
-      filter: blur(120px);
-      opacity: 0.25;
-      animation: float 8s ease-in-out infinite alternate;
-      z-index: 0;
-    }
-
-    .orb:nth-child(1) { top: -10%; left: -10%; }
-    .orb:nth-child(2) { bottom: -15%; right: -10%; animation-delay: 3s; }
-
-    @keyframes float {
-      0% { transform: translateY(0) scale(1); }
-      100% { transform: translateY(25px) scale(1.1); }
-    }
-
-    /* Profile Section */
-    .profile {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      z-index: 2;
-      animation: fadeIn 1s ease forwards;
-    }
-
-    .profile-img {
+    .pfp {
       width: 130px;
       height: 130px;
       border-radius: 50%;
-      border: 4px solid var(--pink);
-      box-shadow: 0 0 30px var(--shadow);
-      background: url('https://p16-pu-sign-no.tiktokcdn-eu.com/tos-no1a-avt-0068c001-no/3a8fe81a5ccdd5e4a585daa037e30223~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=10399&refresh_token=96183a66&x-expires=1762956000&x-signature=%2B7OVVcjplWOvCXnRTpK8UZ0Pm8o%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=no1a') center/cover no-repeat;
-      margin-bottom: 1rem;
-      animation: glowPulse 4s infinite ease-in-out;
-    }
-
-    @keyframes glowPulse {
-      0%, 100% { box-shadow: 0 0 30px var(--shadow); }
-      50% { box-shadow: 0 0 45px rgba(255, 122, 200, 0.7); }
+      border: 4px solid #fff;
+      box-shadow: 0 0 25px rgba(255, 128, 187, 0.8);
+      margin-bottom: 1.2rem;
+      animation: float 4s ease-in-out infinite;
     }
 
     h1 {
-      font-family: "Playfair Display", serif;
-      font-size: 3rem;
-      color: var(--pink);
-      letter-spacing: 1px;
+      font-size: 2.8rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #ff5eb8, #ff94cf);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(255, 140, 214, 0.3);
       margin-bottom: 0.4rem;
+      animation: fadeIn 1.2s ease forwards;
     }
 
     p {
-      color: #a65d8b;
+      color: #ffaad4;
       font-weight: 500;
-      font-size: 1rem;
       margin-bottom: 2rem;
+      letter-spacing: 0.4px;
+      animation: fadeIn 1.5s ease forwards;
     }
 
-    /* Link Buttons */
     .links {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.1rem;
+      width: 85%;
+      max-width: 360px;
       z-index: 2;
-      animation: fadeInUp 1.2s ease forwards;
     }
 
     .link-btn {
@@ -109,109 +70,98 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
-      background: linear-gradient(135deg, #ffb8e9, #ff91cc);
-      border: none;
-      border-radius: 45px;
-      padding: 1rem 2.5rem;
-      width: 270px;
+      background: linear-gradient(135deg, #ff5eb8, #ff8ed4);
       color: #fff;
+      border: none;
+      padding: 1rem 3rem;
+      font-size: 1.1rem;
       font-weight: 600;
-      font-size: 1.2rem;
-      box-shadow: 0 8px 25px rgba(255, 130, 200, 0.35);
+      border-radius: 50px;
       cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
     }
 
-    .link-btn i {
-      font-size: 1.3rem;
-    }
-
-    .link-btn::after {
-      content: "";
+    .link-btn::before {
+      content: '';
       position: absolute;
       top: 0;
       left: -100%;
       width: 100%;
       height: 100%;
-      background: rgba(255,255,255,0.25);
-      transition: 0.5s;
+      background: rgba(255, 255, 255, 0.2);
+      transform: skewX(-20deg);
+      transition: left 0.5s ease;
     }
 
-    .link-btn:hover::after {
+    .link-btn:hover::before {
       left: 100%;
     }
 
     .link-btn:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 10px 30px rgba(255, 122, 200, 0.55);
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(255, 105, 180, 0.7);
     }
 
-    /* Sparkles */
-    .sparkle {
+    .link-btn i, .link-btn img {
+      font-size: 1.3rem;
+    }
+
+    .link-btn img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    footer {
       position: absolute;
-      width: 5px;
-      height: 5px;
-      background: #fff;
+      bottom: 15px;
+      font-size: 0.9rem;
+      color: #ffaed9;
+      opacity: 0.9;
+      letter-spacing: 0.5px;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    .sparkles span {
+      position: absolute;
+      background: radial-gradient(circle, #fff 0%, transparent 70%);
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      opacity: 0.8;
-      animation: sparkle 6s linear infinite;
+      animation: sparkle 5s linear infinite;
+      opacity: 0.7;
     }
 
     @keyframes sparkle {
-      0% { transform: translateY(0) scale(1); opacity: 0; }
-      20% { opacity: 1; }
-      100% { transform: translateY(-100vh) scale(0); opacity: 0; }
-    }
-
-    /* Footer */
-    footer {
-      position: absolute;
-      bottom: 25px;
-      font-size: 0.9rem;
-      color: #c57cad;
-      letter-spacing: 0.5px;
-      z-index: 2;
-      animation: fadeIn 2s ease 1s forwards;
-      opacity: 0;
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      100% { transform: translateY(-110vh) scale(0.5); opacity: 0; }
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 2.3rem; }
-      p { font-size: 0.95rem; }
-      .link-btn { width: 230px; font-size: 1.05rem; padding: 0.8rem 2rem; }
-      .profile-img { width: 110px; height: 110px; }
+      h1 { font-size: 2.2rem; }
+      .link-btn { font-size: 1rem; padding: 0.9rem 2.5rem; }
+      .pfp { width: 110px; height: 110px; }
     }
   </style>
 </head>
 <body>
-
-  <div class="orb"></div>
-  <div class="orb"></div>
-
-  <!-- Sparkles -->
-  <div class="sparkle" style="left:10%;animation-delay:0s;"></div>
-  <div class="sparkle" style="left:40%;animation-delay:2s;"></div>
-  <div class="sparkle" style="left:70%;animation-delay:4s;"></div>
-  <div class="sparkle" style="left:85%;animation-delay:1s;"></div>
-  <div class="sparkle" style="left:55%;animation-delay:3s;"></div>
-
-  <div class="profile">
-    <div class="profile-img"></div>
-    <h1>QueenMelina 💋</h1>
-    <p>✨ Cozy • Baddie • Energy ✨</p>
-  </div>
+  <img src="https://p16-pu-sign-no.tiktokcdn-eu.com/tos-no1a-avt-0068c001-no/3a8fe81a5ccdd5e4a585daa037e30223~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=10399&refresh_token=96183a66&x-expires=1762956000&x-signature=%2B7OVVcjplWOvCXnRTpK8UZ0Pm8o%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=no1a" alt="QueenMelina" class="pfp">
+  
+  <h1>QueenMelina 💖</h1>
+  <p>Welcome to my world — where cute meets confidence 💅✨</p>
 
   <div class="links">
     <button class="link-btn" onclick="window.open('https://tiktok.com/@queenmelina', '_blank')">
@@ -219,7 +169,7 @@
     </button>
 
     <button class="link-btn" onclick="window.open('https://www.roblox.com/users/1/profile', '_blank')">
-      <i class="fa-solid fa-user"></i> Roblox Profile
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Roblox_2022_Logo.svg" alt="Roblox"> Roblox Profile
     </button>
 
     <button class="link-btn" onclick="window.open('https://youtube.com/@queenmelina', '_blank')">
@@ -231,6 +181,14 @@
     </button>
   </div>
 
-  <footer>Made with 💖 by QueenMelina</footer>
+  <div class="sparkles">
+    <span style="left:10%;animation-delay:0s;width:8px;height:8px;"></span>
+    <span style="left:25%;animation-delay:1s;width:5px;height:5px;"></span>
+    <span style="left:40%;animation-delay:2s;width:6px;height:6px;"></span>
+    <span style="left:60%;animation-delay:3s;width:7px;height:7px;"></span>
+    <span style="left:80%;animation-delay:4s;width:5px;height:5px;"></span>
+  </div>
+
+  <footer>Made with 💕 by QueenMelina</footer>
 </body>
 </html>
