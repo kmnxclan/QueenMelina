@@ -1,82 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QueenMelina ✨</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
-    body { background: linear-gradient(135deg, #ffd5ec, #ffe9f7, #ffd7ee); min-height:100vh; padding:30px 15px; overflow-x:hidden; position:relative; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QueenMelina Magical Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+  body { min-height:100vh; overflow-x:hidden; background:#ffd5ec; position:relative; }
 
-    .glow-bg { position: fixed; top:50%; left:50%; width:130vw; height:130vh; background: radial-gradient(circle, rgba(255,140,200,0.25), rgba(255,200,240,0.05), transparent); filter:blur(80px); transform:translate(-50%, -50%); animation: pulse 6s infinite alternate ease-in-out; z-index:-2; }
-    @keyframes pulse { 0% { transform: translate(-50%, -50%) scale(1); } 100% { transform: translate(-50%, -50%) scale(1.18); } }
+  /* Background Gradient */
+  .bg { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; background:linear-gradient(135deg,#ffd5ec,#ffe9f7); transition:1.5s; }
 
-    .sparkle { position:absolute; width:10px; height:10px; background: radial-gradient(circle, #fff 0%, rgba(255,255,255,0) 70%); border-radius:50%; opacity:0.6; animation:sparkle 4s infinite ease-in-out; filter: blur(1px); pointer-events:none; }
-    @keyframes sparkle { 0% { opacity:0.2; transform:scale(0.6); } 50% { opacity:0.9; transform:scale(1.2); } 100% { opacity:0.2; transform:scale(0.6); } }
+  /* Sparkles */
+  .sparkle { position:absolute; width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.8); opacity:0.6; pointer-events:none; animation:sparkle 4s infinite ease-in-out; }
+  @keyframes sparkle { 0%{transform:scale(0.6)}50%{transform:scale(1.2)}100%{transform:scale(0.6)} }
 
-    .pfp { width:155px; height:155px; border-radius:50%; border:5px solid #fff; box-shadow:0 0 40px rgba(255,130,205,0.8); animation: float 4.5s ease-in-out infinite; display:block; margin:0 auto 20px auto; }
-    @keyframes float { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-12px); } }
+  /* Profile Picture */
+  .pfp { width:150px; height:150px; border-radius:50%; display:block; margin:20px auto; box-shadow:0 0 30px rgba(255,140,210,0.8); animation: float 4.5s ease-in-out infinite; }
+  @keyframes float {0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
-    h1 { font-size:3rem; text-align:center; font-weight:800; background: linear-gradient(90deg, #ff4fac, #ffa8dd); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-shadow:0 0 25px rgba(255,140,210,0.5); animation: fadeIn 1.2s ease; }
-    .welcome { text-align:center; margin:10px auto 35px auto; font-size:1.15rem; max-width:350px; color:#ff7fc4; animation: fadeIn 1.7s ease; }
+  h1 { text-align:center; font-size:2.8rem; background:linear-gradient(90deg,#ff4fac,#ffa8dd); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:5px; }
+  .welcome { text-align:center; color:#ff7fc4; margin-bottom:25px; }
 
-    @keyframes fadeIn { from { opacity:0; transform:translateY(15px); } to { opacity:1; transform:translateY(0); } }
+  .links { display:flex; flex-direction:column; gap:15px; width:90%; max-width:400px; margin:0 auto; }
+  .btn { padding:1rem; border-radius:45px; border:none; background:linear-gradient(135deg,#ff4fae,#ff97d8); color:white; font-weight:600; display:flex; justify-content:center; align-items:center; gap:10px; cursor:pointer; box-shadow:0 0 20px rgba(255,130,200,0.5); position:relative; overflow:hidden; transition:.25s; }
+  .btn:hover { transform:scale(1.05); box-shadow:0 0 35px rgba(255,120,200,0.8); }
+  .btn::before { content:''; position:absolute; top:0; left:-100%; height:100%; width:100%; background:rgba(255,255,255,0.25); transform:skewX(-25deg); transition:.45s; }
+  .btn:hover::before { left:100%; }
 
-    .links { width:100%; max-width:430px; margin:0 auto; display:flex; flex-direction:column; gap:18px; }
-    .btn { width:100%; padding:1.15rem; border-radius:45px; font-size:1.25rem; font-weight:600; border:none; background:linear-gradient(135deg,#ff4fae,#ff97d8); color:white; box-shadow:0 0 30px rgba(255,120,190,0.7); display:flex; justify-content:center; align-items:center; gap:12px; cursor:pointer; position:relative; overflow:hidden; transition:.25s; }
-    .btn:hover { transform:scale(1.06); box-shadow:0 0 45px rgba(255,120,200,1); }
-    .btn::before { content:''; position:absolute; top:0; left:-100%; height:100%; width:100%; background:rgba(255,255,255,0.25); transform:skewX(-25deg); transition:.45s; }
-    .btn:hover::before { left:100%; }
+  .small-row { display:flex; justify-content:space-between; gap:14px; }
+  .small-btn { width:50%; padding:0.85rem; border-radius:40px; border:none; background:linear-gradient(135deg,#ff6ac4,#ffb9ea); color:white; font-size:1rem; font-weight:600; box-shadow:0 0 20px rgba(255,110,200,0.6); display:flex; justify-content:center; align-items:center; gap:8px; cursor:pointer; transition:.25s; }
+  .small-btn:hover { transform:scale(1.06); }
 
-    .small-row { display:flex; justify-content:space-between; gap:14px; }
-    .small-btn { width:50%; padding:0.85rem; border-radius:40px; border:none; background:linear-gradient(135deg,#ff6ac4,#ffb9ea); color:white; font-size:1rem; font-weight:600; box-shadow:0 0 20px rgba(255,110,200,0.6); display:flex; justify-content:center; align-items:center; gap:8px; cursor:pointer; transition:.25s; }
-    .small-btn:hover { transform:scale(1.06); }
-    footer { text-align:center; margin-top:40px; color:#ff95d3; font-size:0.95rem; }
+  footer { text-align:center; margin-top:40px; color:#ff95d3; font-size:0.95rem; }
 
-    /* MOBILE */
-    @media(max-width:520px){h1{font-size:2.4rem} .btn{font-size:1.05rem;padding:1rem} .small-btn{font-size:.9rem;padding:.75rem} .pfp{width:130px;height:130px} .welcome{font-size:1rem} .links{gap:15px}}
+  /* Counter MAX */
+  .counter-container{margin-top:30px;text-align:center;}
+  .counter-title{font-size:1.6rem;font-weight:700;color:#ff5fbf;text-shadow:0 0 12px rgba(255,105,180,0.5);animation:titlePulse 3s infinite ease-in-out;}
+  @keyframes titlePulse{0%,100%{opacity:1}50%{opacity:.6}}
+  .counter-box{margin-top:12px;padding:10px;border-radius:16px;background:rgba(255,182,213,0.45);box-shadow:0 0 18px rgba(255,130,180,0.55);backdrop-filter:blur(8px);animation:counterGlow 4s infinite ease-in-out;position:relative;overflow:hidden;}
+  @keyframes counterGlow{0%,100%{box-shadow:0 0 16px rgba(255,130,180,0.5)}50%{box-shadow:0 0 28px rgba(255,80,160,0.7)}}
+  .counter-live-badge{display:inline-block;margin-bottom:6px;padding:4px 10px;background:#ff2da8;color:white;border-radius:12px;font-size:.8rem;font-weight:700;animation:badgePulse 1.4s infinite;}
+  @keyframes badgePulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.18);opacity:.6}}
+  .counter-number{font-size:2.2rem;font-weight:700;color:#ff3ecf; text-shadow:0 0 15px rgba(255,90,200,0.8); animation:numberPulse 1s infinite alternate;}
+  @keyframes numberPulse{0%{transform:scale(1)}100%{transform:scale(1.05)}}
 
-    /* Counter MAX */
-    .counter-container{margin-top:30px;text-align:center;}
-    .counter-title{font-size:1.6rem;font-weight:700;color:#ff5fbf;text-shadow:0 0 12px rgba(255,105,180,0.5);animation:titlePulse 3s infinite ease-in-out;}
-    @keyframes titlePulse{0%,100%{opacity:1}50%{opacity:.6}}
-    .counter-box{margin-top:12px;padding:10px;border-radius:16px;background:rgba(255,182,213,0.45);box-shadow:0 0 18px rgba(255,130,180,0.55);backdrop-filter:blur(8px);animation:counterGlow 4s infinite ease-in-out;position:relative;overflow:hidden;}
-    @keyframes counterGlow{0%,100%{box-shadow:0 0 16px rgba(255,130,180,0.5)}50%{box-shadow:0 0 28px rgba(255,80,160,0.7)}}
-    .counter-live-badge{display:inline-block;margin-bottom:6px;padding:4px 10px;background:#ff2da8;color:white;border-radius:12px;font-size:.8rem;font-weight:700;animation:badgePulse 1.4s infinite;}
-    @keyframes badgePulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.18);opacity:.6}}
-    .counter-box iframe{width:100%;height:160px;border-radius:12px;animation:iframeBounce 5s infinite ease-in-out;}
-    @keyframes iframeBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-  </style>
+  /* Weather effects */
+  .weather-effect { position:absolute; pointer-events:none; }
+  @keyframes fall {0%{transform:translateY(0)}100%{transform:translateY(120vh)}}
+  @keyframes snow {0%{transform:translateY(0) rotate(0deg)}100%{transform:translateY(120vh) rotate(360deg)}}
+</style>
 </head>
 <body>
-  <div class="glow-bg"></div>
-  <script>for(let i=0;i<22;i++){let s=document.createElement('div');s.className='sparkle';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=(Math.random()*4)+'s';document.body.appendChild(s);}</script>
+<div class="bg" id="bg-layer"></div>
 
-  <img class="pfp" src="https://p16-pu-sign-no.tiktokcdn-eu.com/tos-no1a-avt-0068c001-no/3a8fe81a5ccdd5e4a585daa037e30223~tplv-tiktokx-cropcenter:1080:1080.jpeg" alt="pfp">
-  <h1>QueenMelina</h1>
-  <div class="welcome">Welcome to the cutest, magical hub 💖✨</div>
+<img class="pfp" src="https://p16-pu-sign-no.tiktokcdn-eu.com/tos-no1a-avt-0068c001-no/3a8fe81a5ccdd5e4a585daa037e30223~tplv-tiktokx-cropcenter:1080:1080.jpeg" alt="pfp">
+<h1>QueenMelina</h1>
+<div class="welcome" id="welcome-text">Welcome to your magical hub ✨</div>
 
-  <div class="links">
-    <button class="btn" onclick="window.open('https://www.tiktok.com/@queenme1ina','_blank')"><i class="fa-brands fa-tiktok"></i> TikTok Profile</button>
-    <div class="small-row">
-      <button class="small-btn" onclick="window.open('https://www.roblox.com/users/1310283994/profile','_blank')"><i class="fa-solid fa-user"></i> Profile</button>
-      <button class="small-btn" onclick="window.open('https://www.roblox.com/communities/32722697/Granded-Games#!/about','_blank')"><i class="fa-solid fa-people-group"></i> Group</button>
-    </div>
-    <button class="btn" onclick="window.open('https://discord.com/invite/fevPFkcera','_blank')"><i class="fa-brands fa-discord"></i> Discord Server</button>
-    <button class="btn" onclick="window.open('https://www.youtube.com/@yourQueenMelina','_blank')"><i class="fa-brands fa-youtube"></i> YouTube Channel</button>
+<div class="links">
+  <button class="btn" onclick="window.open('https://www.tiktok.com/@queenme1ina','_blank')">TikTok Profile</button>
+  <div class="small-row">
+    <button class="small-btn" onclick="window.open('https://www.roblox.com/users/1310283994/profile','_blank')">Profile</button>
+    <button class="small-btn" onclick="window.open('https://www.roblox.com/communities/32722697/Granded-Games#!/about','_blank')">Group</button>
   </div>
+  <button class="btn" onclick="window.open('https://discord.com/invite/fevPFkcera','_blank')">Discord Server</button>
+  <button class="btn" onclick="window.open('https://www.youtube.com/@yourQueenMelina','_blank')">YouTube Channel</button>
+</div>
 
-  <!-- Counter MAX -->
-  <div class="counter-container">
-    <span class="counter-live-badge">LIVE</span>
-    <h2 class="counter-title">TikTok Followers</h2>
-    <div class="counter-box">
-      <iframe src="https://tokcount.com/?user=queenme1ina&embed=1" frameborder="0" scrolling="no"></iframe>
-    </div>
+<!-- Counter MAX -->
+<div class="counter-container">
+  <span class="counter-live-badge">LIVE</span>
+  <h2 class="counter-title">TikTok Followers</h2>
+  <div class="counter-box">
+    <div class="counter-number" id="counter">0</div>
   </div>
+</div>
 
-  <footer>Made with 💕 for everyone who supports QueenMelina</footer>
+<footer>Made with 💕 for everyone who supports QueenMelina</footer>
+
+<script>
+// Sparkles animation
+for(let i=0;i<20;i++){
+  let s=document.createElement('div');
+  s.className='sparkle';
+  s.style.left=Math.random()*100+'%';
+  s.style.top=Math.random()*100+'%';
+  s.style.animationDelay=(Math.random()*4)+'s';
+  document.body.appendChild(s);
+}
+
+// Animated follower counter simulation
+let followers=1234; // starting followers
+const counterEl=document.getElementById('counter');
+function updateCounter(){
+  followers+=Math.floor(Math.random()*3); // simulate increase
+  counterEl.textContent=followers.toLocaleString();
+}
+setInterval(updateCounter,2000);
+
+// Weather-based theme
+async function setWeatherTheme(){
+    try{
+        const res=await fetch('https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&daily=weathercode&timezone=Europe/Berlin');
+        const data=await res.json();
+        const weatherCode=data.daily.weathercode[0];
+        const bg=document.getElementById('bg-layer');
+        document.querySelectorAll('.weather-effect').forEach(e=>e.remove());
+
+        if([0,1,2].includes(weatherCode)){
+            bg.style.background='linear-gradient(135deg,#FFD6D6,#FFB6D9)';
+            document.getElementById('welcome-text').textContent='Have a bright and magical day! ☀️';
+        } else if([3,45,48].includes(weatherCode)){
+            bg.style.background='linear-gradient(135deg,#D0D0D0,#A0A0A0)';
+            document.getElementById('welcome-text').textContent='Stay cozy today! ☁️';
+        } else if([51,53,55,61,63,65].includes(weatherCode)){
+            bg.style.background='linear-gradient(135deg,#A0C0FF,#7080D0)';
+            document.getElementById('welcome-text').textContent='Grab your umbrella! 🌧️';
+            for(let i=0;i<60;i++){
+                let drop=document.createElement('div');
+                drop.className='weather-effect';
+                drop.style.width='2px'; drop.style.height='12px';
+                drop.style.background='rgba(255,255,255,0.6)';
+                drop.style.left=Math.random()*100+'%';
+                drop.style.top=Math.random()*-100+'%';
+                drop.style.animation='fall '+(1+Math.random()*2)+'s linear infinite';
+                document.body.appendChild(drop);
+            }
+        } else if([71,73,75,77,85,86].includes(weatherCode)){
+            bg.style.background='linear-gradient(135deg,#DFF6FF,#B0E0FF)';
+            document.getElementById('welcome-text').textContent='Snowy vibes today! ❄️';
+            for(let i=0;i<50;i++){
+                let flake=document.createElement('div');
+                flake.className='weather-effect';
+                flake.style.width=flake.style.height=(Math.random()*6+4)+'px';
+                flake.style.background='white';
+                flake.style.borderRadius='50%';
+                flake.style.left=Math.random()*100+'%';
+                flake.style.top=Math.random()*-100+'%';
+                flake.style.opacity=0.8;
+                flake.style.animation='snow '+(4+Math.random()*4)+'s linear infinite';
+                document.body.appendChild(flake);
+            }
+        }
+    } catch(err){ console.log('Weather fetch failed',err);}
+}
+setWeatherTheme();
+</script>
 </body>
 </html>
