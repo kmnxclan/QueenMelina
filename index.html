@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QueenMelina 💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>QueenMelina ✨</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
@@ -16,212 +16,391 @@
     }
 
     body {
-      background: linear-gradient(135deg, #ffd5ea 0%, #ffe8f5 50%, #ffd2e8 100%);
+      background: linear-gradient(135deg, #ffd5ec, #ffe9f7, #ffd7ee);
       min-height: 100vh;
+      padding: 30px 15px;
       overflow-x: hidden;
-      text-align: center;
-      padding: 40px 20px;
       position: relative;
     }
 
-    /* Floating bubble animation */
-    .bubble {
+    /* Animated Glow Background */
+    .glow-bg {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 130vw;
+      height: 130vh;
+      background: radial-gradient(circle, rgba(255,140,200,0.25), rgba(255,200,240,0.05), transparent);
+      filter: blur(80px);
+      transform: translate(-50%, -50%);
+      animation: pulse 6s infinite alternate ease-in-out;
+      z-index: -2;
+    }
+
+    @keyframes pulse {
+      0% { transform: translate(-50%, -50%) scale(1); }
+      100% { transform: translate(-50%, -50%) scale(1.18); }
+    }
+
+    /* Sparkle Particles */
+    .sparkle {
       position: absolute;
-      bottom: -100px;
-      background: rgba(255, 182, 227, 0.45);
+      width: 10px;
+      height: 10px;
+      background: #fff;
       border-radius: 50%;
-      animation: rise 12s infinite ease-in;
+      opacity: 0.6;
+      animation: sparkle 4s infinite ease-in-out;
       filter: blur(1px);
     }
 
-    @keyframes rise {
-      0% { transform: translateY(0) scale(1); opacity: 1; }
-      100% { transform: translateY(-140vh) scale(1.3); opacity: 0; }
+    @keyframes sparkle {
+      0% { opacity: 0.2; transform: scale(0.6); }
+      50% { opacity: 0.9; transform: scale(1.2); }
+      100% { opacity: 0.2; transform: scale(0.6); }
     }
 
-    /* Profile */
+    /* Profile Picture */
     .pfp {
-      width: 150px;
-      height: 150px;
+      width: 155px;
+      height: 155px;
       border-radius: 50%;
       border: 5px solid #fff;
-      box-shadow: 0 0 35px rgba(255, 132, 194, 0.9);
-      animation: pfpFloat 4s ease-in-out infinite;
-      margin-bottom: 1.2rem;
+      box-shadow: 0 0 40px rgba(255, 130, 205, 0.8);
+      animation: float 4.5s ease-in-out infinite;
+      display: block;
+      margin: 0 auto 20px auto;
     }
 
-    @keyframes pfpFloat {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
     }
 
     h1 {
       font-size: 3rem;
+      text-align: center;
       font-weight: 800;
-      background: linear-gradient(90deg, #ff62b8, #ff9bd8);
+      background: linear-gradient(90deg, #ff4fac, #ffa8dd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 25px rgba(255, 155, 215, 0.4);
-      animation: fadeIn 1s ease;
+      text-shadow: 0 0 25px rgba(255, 140, 210, 0.5);
+      animation: fadeIn 1.2s ease;
     }
 
     .welcome {
-      font-size: 1.1rem;
-      color: #ff9bcf;
-      margin-bottom: 2rem;
-      animation: fadeIn 1.4s ease;
+      text-align: center;
+      margin: 10px auto 35px auto;
+      font-size: 1.15rem;
+      max-width: 350px;
+      color: #ff7fc4;
+      animation: fadeIn 1.7s ease;
     }
 
     @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(10px); }
-      100% { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Buttons Container */
     .links {
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 1.4rem;
-      align-items: center;
-      width: 100%;
-      max-width: 420px;
-      margin: 0 auto;
+      gap: 18px;
     }
 
-    /* Big Buttons */
+    /* Main Big Buttons */
     .btn {
       width: 100%;
-      padding: 1.1rem;
+      padding: 1.15rem;
       border-radius: 45px;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 600;
       border: none;
-      background: linear-gradient(135deg, #ff63b7, #ff93d0);
-      color: #fff;
-      box-shadow: 0 0 30px rgba(255, 116, 189, 0.7);
-      cursor: pointer;
-      transition: .25s;
+      background: linear-gradient(135deg, #ff4fae, #ff97d8);
+      color: white;
+      box-shadow: 0 0 30px rgba(255, 120, 190, 0.7);
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 12px;
+      cursor: pointer;
       position: relative;
       overflow: hidden;
+      transition: .25s;
     }
 
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 45px rgba(255, 116, 189, 1);
-    }
+    .btn:hover { transform: scale(1.06); box-shadow: 0 0 45px rgba(255, 120, 200, 1); }
 
-    /* Light Flash */
     .btn::before {
       content: '';
       position: absolute;
       top: 0;
       left: -100%;
-      width: 100%;
       height: 100%;
+      width: 100%;
       background: rgba(255,255,255,0.25);
-      transform: skewX(-20deg);
-      transition: .5s;
+      transform: skewX(-25deg);
+      transition: .45s;
     }
 
     .btn:hover::before { left: 100%; }
 
-    /* Small Buttons Row */
+    /* Small Buttons */
     .small-row {
       display: flex;
-      justify-content: center;
-      gap: 1rem;
-      width: 100%;
+      justify-content: space-between;
+      gap: 14px;
     }
 
     .small-btn {
-      width: 48%;
-      padding: 0.9rem;
+      width: 50%;
+      padding: 0.85rem;
       border-radius: 40px;
+      border: none;
+      background: linear-gradient(135deg, #ff6ac4, #ffb9ea);
+      color: white;
       font-size: 1rem;
       font-weight: 600;
-      background: linear-gradient(135deg, #ff77c8, #ffb4e6);
-      color: #fff;
-      border: none;
-      box-shadow: 0 0 20px rgba(255, 140, 200, 0.6);
-      transition: .25s;
+      box-shadow: 0 0 20px rgba(255, 110, 200, 0.6);
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 8px;
+      cursor: pointer;
+      transition: .25s;
     }
 
-    .small-btn:hover {
-      transform: scale(1.06);
-    }
+    .small-btn:hover { transform: scale(1.06); }
 
     footer {
+      text-align: center;
       margin-top: 40px;
-      color: #ff9cd1;
-      font-size: .95rem;
+      color: #ff95d3;
+      font-size: 0.95rem;
     }
 
-    @media(max-width:600px) {
+    /* MOBILE OPTIMIZATION */
+    @media(max-width: 520px) {
       h1 { font-size: 2.4rem; }
-      .btn { font-size: 1.05rem; }
-      .small-btn { font-size: .95rem; }
+      .btn { font-size: 1.05rem; padding: 1rem; }
+      .small-btn { font-size: 0.9rem; padding: 0.75rem; }
       .pfp { width: 130px; height: 130px; }
+      .welcome { font-size: 1rem; }
+      .links { gap: 15px; }
     }
-  </style>
+  .counter-container {
+    margin-top: 40px;
+    text-align: center;
+    animation: fadeIn 1.2s ease-out;
+}
+.counter-title {
+    font-size: 1.4rem;
+    color: #ff8ecf;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 160, 220, 0.6);
+}
+.counter-box {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    box-shadow: 0 0 20px rgba(255, 140, 200, 0.5);
+    animation: float 3.5s ease-in-out infinite;
+}
+.counter-box iframe {
+    width: 100%;
+    height: 140px;
+    border-radius: 12px;
+}
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+/* ✨ Sparkle Trail */
+.sparkle {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background: radial-gradient(circle, #ffb3e6 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sparkleFade .8s ease-out forwards;
+}
+@keyframes sparkleFade {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(2.6); opacity: 0; }
+}
+
+/* 🌸 Floating Glow Orbs */
+.orb {
+    position: fixed;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,150,210,0.4) 0%, rgba(255,150,210,0) 70%);
+    animation: orbFloat 12s infinite ease-in-out;
+    pointer-events: none;
+    z-index: -2;
+}
+.orb1 { top: 10%; left: 5%; animation-delay: 0s; }
+.orb2 { bottom: 15%; right: 10%; animation-delay: 4s; }
+.orb3 { top: 40%; right: 25%; animation-delay: 7s; }
+@keyframes orbFloat {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-40px) scale(1.15); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+/* ⏳ Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #ffdaf1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease;
+}
+#loading-screen.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+.loader-heart {
+    width: 60px; height: 60px;
+    background: pink;
+    transform: rotate(45deg);
+    animation: heartbeat 1.2s infinite ease-in-out;
+    border-radius: 10px;
+}
+.loader-heart::before,
+.loader-heart::after {
+    content: '';
+    position: absolute;
+    width: 60px; height: 60px;
+    background: pink;
+    border-radius: 50%;
+}
+.loader-heart::before { top: -30px; left: 0; }
+.loader-heart::after { left: -30px; top: 0; }
+@keyframes heartbeat {
+    0%, 100% { transform: rotate(45deg) scale(1); }
+    50% { transform: rotate(45deg) scale(1.25); }
+}
+.loading-text {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #d95fa5;
+    font-weight: 600;
+    animation: fadePulse 2s infinite;
+}
+@keyframes fadePulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+</style>
 </head>
 
 <body>
-  <!-- BUBBLES -->
+  <div class="glow-bg"></div>
+
+  <!-- Sparkles -->
   <script>
-    for (let i = 0; i < 12; i++) {
-      let b = document.createElement('div');
-      b.className = 'bubble';
-      let size = Math.random() * 80 + 20;
-      b.style.width = size + 'px';
-      b.style.height = size + 'px';
-      b.style.left = Math.random() * 100 + '%';
-      b.style.animationDuration = (8 + Math.random() * 6) + 's';
-      document.body.appendChild(b);
+    for (let i = 0; i < 22; i++) {
+      let s = document.createElement('div');
+      s.className = 'sparkle';
+      s.style.left = Math.random() * 100 + '%';
+      s.style.top = Math.random() * 100 + '%';
+      s.style.animationDelay = (Math.random() * 4) + 's';
+      document.body.appendChild(s);
     }
   </script>
 
-  <!-- PROFILE -->
-  <img src="https://p16-pu-sign-no.tiktokcdn-eu.com/tos-no1a-avt-0068c001-no/3a8fe81a5ccdd5e4a585daa037e30223~tplv-tiktokx-cropcenter:1080:1080.jpeg" class="pfp">
+  <!-- Profile -->
+  <img class="pfp" src="https://p16-pu-sign-no.tiktokcdn-eu.com/tos-no1a-avt-0068c001-no/3a8fe81a5ccdd5e4a585daa037e30223~tplv-tiktokx-cropcenter:1080:1080.jpeg" alt="pfp">
 
-  <h1>QueenMelina 💖</h1>
-  <div class="welcome">Welcome in my world — cute, cozy & full of energy ✨</div>
+  <h1>QueenMelina</h1>
+  <div class="welcome">Welcome to the cutest, pinkest, baddie-approved hub 💖✨</div>
 
   <div class="links">
 
-    <!-- BIG TIKTOK BUTTON -->
+    <!-- TikTok -->
     <button class="btn" onclick="window.open('https://www.tiktok.com/@queenme1ina','_blank')">
       <i class="fa-brands fa-tiktok"></i> TikTok Profile
     </button>
 
-    <!-- 2 SMALL BUTTONS -->
+    <!-- Roblox Buttons -->
     <div class="small-row">
       <button class="small-btn" onclick="window.open('https://www.roblox.com/users/1310283994/profile','_blank')">
-        <i class="fa-solid fa-user"></i> Roblox Profile
+        <i class="fa-solid fa-user"></i> Profile
       </button>
       <button class="small-btn" onclick="window.open('https://www.roblox.com/communities/32722697/Granded-Games#!/about','_blank')">
-        <i class="fa-solid fa-people-group"></i> Our Group
+        <i class="fa-solid fa-people-group"></i> Group
       </button>
     </div>
 
-    <!-- DISCORD BUTTON -->
+    <!-- Discord -->
     <button class="btn" onclick="window.open('https://discord.com/invite/fevPFkcera','_blank')">
       <i class="fa-brands fa-discord"></i> Discord Server
     </button>
 
-    <!-- YOUTUBE BUTTON -->
+    <!-- YouTube -->
     <button class="btn" onclick="window.open('https://www.youtube.com/@yourQueenMelina','_blank')">
       <i class="fa-brands fa-youtube"></i> YouTube Channel
     </button>
 
   </div>
 
-  <footer>Made with 💕 by QueenMelina</footer>
+  <footer>Made with 💕 for everyone who supports QueenMelina</footer>
+    <!-- Real-Time TikTok Follower Counter -->
+    <div class="counter-container">
+        <h2 class="counter-title">Live TikTok Followers</h2>
+        <div class="counter-box">
+            <iframe src="https://livecounts.io/embed/tiktok-live-follower-count/queenme1ina" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </div>
+
+    <!-- ✨ Magical Particle Trail (Mobile + PC) -->
+    <script>
+    const particles = [];
+    document.addEventListener('pointermove', (e) => {
+        const p = document.createElement('div');
+        p.className = 'sparkle';
+        p.style.left = e.pageX + 'px';
+        p.style.top = e.pageY + 'px';
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 800);
+    });
+    </script>
+
+    <!-- 🌸 Floating Glow Orbs -->
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+
+    <!-- ⏳ Cute Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader-heart"></div>
+        <p class="loading-text">Melina is preparing magic…</p>
+    </div>
+    <script>
+        window.onload = () => {
+            document.getElementById('loading-screen').classList.add('hide');
+        };
+    </script>
 </body>
 </html>
