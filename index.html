@@ -9,18 +9,14 @@
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-
     body {
       background: linear-gradient(135deg, #ffd5ec, #ffe9f7, #ffd7ee);
-      min-height: 100vh;
-      padding: 30px 15px;
-      overflow-x: hidden;
-      position: relative;
+      min-height: 100vh; padding: 30px 15px;
+      overflow-x: hidden; position: relative;
     }
 
     .glow-bg {
-      position: fixed;
-      top: 50%; left: 50%;
+      position: fixed; top: 50%; left: 50%;
       width: 130vw; height: 130vh;
       background: radial-gradient(circle, rgba(255,140,200,0.25), rgba(255,200,240,0.05), transparent);
       filter: blur(80px);
@@ -35,11 +31,9 @@
     }
 
     .sparkle {
-      position: absolute;
-      width: 10px; height: 10px;
-      background: #fff; opacity: 0.6;
-      border-radius: 50%;
-      animation: sparkle 4s infinite ease-in-out;
+      position: absolute; width: 10px; height: 10px;
+      background: #fff; border-radius: 50%;
+      opacity: 0.6; animation: sparkle 4s infinite ease-in-out;
       filter: blur(1px);
     }
 
@@ -49,14 +43,13 @@
       100% { opacity: 0.2; transform: scale(0.6); }
     }
 
+    /* Profile Picture */
     .pfp {
       width: 155px; height: 155px;
-      border-radius: 50%;
-      border: 5px solid #fff;
+      border-radius: 50%; border: 5px solid #fff;
       box-shadow: 0 0 40px rgba(255, 130, 205, 0.8);
       animation: float 4.5s ease-in-out infinite;
-      display: block;
-      margin: 0 auto 20px auto;
+      display: block; margin: 0 auto 20px auto;
     }
 
     @keyframes float {
@@ -65,143 +58,73 @@
     }
 
     h1 {
-      text-align: center;
-      font-size: 3rem;
-      font-weight: 800;
+      font-size: 3rem; text-align: center; font-weight: 800;
       background: linear-gradient(90deg, #ff4fac, #ffa8dd);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       text-shadow: 0 0 25px rgba(255, 140, 210, 0.5);
+      animation: fadeIn 1.2s ease;
     }
 
     .welcome {
-      text-align: center;
-      margin: 10px auto 35px auto;
-      font-size: 1.15rem;
-      max-width: 350px;
-      color: #ff7fc4;
+      text-align: center; margin: 10px auto 35px auto;
+      font-size: 1.15rem; max-width: 350px; color: #ff7fc4;
+      animation: fadeIn 1.7s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .links {
-      width: 100%;
-      max-width: 430px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
+      width: 100%; max-width: 430px;
+      margin: 0 auto; display: flex;
+      flex-direction: column; gap: 18px;
     }
 
     .btn {
-      width: 100%;
-      padding: 1.15rem;
-      border-radius: 45px;
-      font-size: 1.25rem;
-      font-weight: 600;
-      border: none;
+      width: 100%; padding: 1.15rem;
+      border-radius: 45px; font-size: 1.25rem;
+      font-weight: 600; border: none;
       background: linear-gradient(135deg, #ff4fae, #ff97d8);
-      color: white;
-      box-shadow: 0 0 30px rgba(255, 120, 190, 0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: .25s;
+      color: white; box-shadow: 0 0 30px rgba(255, 120, 190, 0.7);
+      display: flex; justify-content: center; align-items: center;
+      gap: 12px; cursor: pointer; position: relative;
+      overflow: hidden; transition: .25s;
     }
-
-    .btn:hover { transform: scale(1.06); }
+    .btn:hover { transform: scale(1.06); box-shadow: 0 0 45px rgba(255,120,200,1); }
 
     .btn::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: rgba(255,255,255,0.25);
-      transform: skewX(-25deg);
-      transition: .45s;
+      content: ''; position: absolute; top: 0; left: -100%;
+      height: 100%; width: 100%; background: rgba(255,255,255,0.25);
+      transform: skewX(-25deg); transition: .45s;
     }
     .btn:hover::before { left: 100%; }
 
-    .small-row {
-      display: flex;
-      gap: 14px;
-    }
+    .small-row { display: flex; justify-content: space-between; gap: 14px; }
 
     .small-btn {
-      width: 50%;
-      padding: 0.85rem;
-      border-radius: 40px;
-      font-size: 1rem;
-      font-weight: 600;
-      background: linear-gradient(135deg, #ff6ac4, #ffb9ea);
-      color: white;
-      border: none;
-      box-shadow: 0 0 20px rgba(255, 110, 200, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: .25s;
+      width: 50%; padding: 0.85rem; border-radius: 40px;
+      border: none; background: linear-gradient(135deg, #ff6ac4, #ffb9ea);
+      color: white; font-size: 1rem; font-weight: 600;
+      box-shadow: 0 0 20px rgba(255,110,200,0.6);
+      display: flex; justify-content: center; align-items: center;
+      gap: 8px; cursor: pointer; transition: .25s;
     }
-
     .small-btn:hover { transform: scale(1.06); }
 
     footer {
-      text-align: center;
-      margin-top: 40px;
-      color: #ff95d3;
-      font-size: 0.95rem;
-    }
-
-    /* Loading animation popup */
-    #loaderPopup {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(255, 220, 245, 0.8);
-      backdrop-filter: blur(4px);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 999;
-      animation: fadePop 0.3s ease;
-    }
-
-    @keyframes fadePop {
-      from { opacity: 0; transform: scale(1.05); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .loader-circle {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      border: 6px solid #ff9bd6;
-      border-top: 6px solid white;
-      animation: spin 1s linear infinite;
-      margin-bottom: 18px;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .loader-text {
-      font-size: 1.3rem;
-      color: #ff4fac;
-      font-weight: 600;
+      text-align: center; margin-top: 40px;
+      color: #ff95d3; font-size: 0.95rem;
     }
 
     @media(max-width: 520px) {
       h1 { font-size: 2.4rem; }
-      .btn { padding: 1rem; font-size: 1.05rem; }
-      .small-btn { padding: 0.75rem; font-size: 0.9rem; }
+      .btn { font-size: 1.05rem; padding: 1rem; }
+      .small-btn { font-size: 0.9rem; padding: 0.75rem; }
       .pfp { width: 130px; height: 130px; }
+      .welcome { font-size: 1rem; }
+      .links { gap: 15px; }
     }
   </style>
 </head>
@@ -220,44 +143,34 @@
     }
   </script>
 
-  <!-- Loading Popup -->
-  <div id="loaderPopup">
-    <div class="loader-circle"></div>
-    <div class="loader-text">Opening Roblox… 💖</div>
-  </div>
+  <!-- AUTO-UPDATING TIKTOK PFP -->
+  <img class="pfp" id="pfp" src="" alt="pfp">
 
   <script>
-    function openRobloxProfile() {
-      const appLink = "roblox://user?userid=1310283994";
-      const browserLink = "https://www.roblox.com/users/1310283994/profile";
+    async function loadTikTokPFP() {
+      try {
+        const response = await fetch("https://www.tiktok.com/@queenme1ina?__a=1&__d=1");
+        const data = await response.json();
 
-      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        let avatar =
+          data.userInfo?.user?.avatarLarger ||
+          data.userInfo?.user?.avatarMedium ||
+          data.userInfo?.user?.avatarThumb;
 
-      const popup = document.getElementById("loaderPopup");
-      popup.style.display = "flex";
-
-      if (isMobile) {
-        // Try to open app
-        window.location.href = appLink;
-
-        // Fallback if app doesn't open
-        setTimeout(() => {
-          window.location.href = browserLink;
-        }, 1400);
-      } else {
-        // PC goes to browser
-        window.open(browserLink, "_blank");
-        popup.style.display = "none";
+        if (avatar) {
+          document.getElementById("pfp").src = avatar;
+        }
+      } catch (err) {
+        console.log("TikTok blocked direct API, using fallback");
+        document.getElementById("pfp").src =
+          "https://www.tiktok.com/api/user/detail/?username=queenme1ina";
       }
     }
+    loadTikTokPFP();
   </script>
 
-
-  <!-- Profile -->
-  <img class="pfp" src="YOUR PROFILE PICTURE HERE" alt="pfp">
-
   <h1>QueenMelina 💓</h1>
-  <div class="welcome">Welcome to my World 💖✨</div>
+  <div class="welcome">Welcome to my World💖✨</div>
 
   <div class="links">
 
@@ -266,16 +179,31 @@
       <i class="fa-brands fa-tiktok"></i> TikTok Profile
     </button>
 
-    <!-- Roblox Buttons -->
+    <!-- Roblox buttons with auto app detection -->
     <div class="small-row">
       <button class="small-btn" onclick="openRobloxProfile()">
         <i class="fa-solid fa-user"></i> Roblox Profile
       </button>
-
       <button class="small-btn" onclick="window.open('https://www.roblox.com/communities/32722697/Granded-Games#!/about','_blank')">
         <i class="fa-solid fa-people-group"></i> Roblox Group
       </button>
     </div>
+
+    <script>
+      function openRobloxProfile() {
+        const userId = "1310283994";
+        const appLink = "roblox://user-profile/" + userId;
+        const webLink = "https://www.roblox.com/users/" + userId + "/profile";
+
+        // If mobile → try app first
+        if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
+          window.location.href = appLink;
+          setTimeout(() => { window.location.href = webLink; }, 600);
+        } else {
+          window.open(webLink, "_blank");
+        }
+      }
+    </script>
 
     <!-- Discord -->
     <button class="btn" onclick="window.open('https://discord.com/invite/fevPFkcera','_blank')">
