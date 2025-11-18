@@ -8,12 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
     body {
       background: linear-gradient(135deg, #ffd5ec, #ffe9f7, #ffd7ee);
@@ -23,13 +18,10 @@
       position: relative;
     }
 
-    /* Animated Glow Background */
     .glow-bg {
       position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 130vw;
-      height: 130vh;
+      top: 50%; left: 50%;
+      width: 130vw; height: 130vh;
       background: radial-gradient(circle, rgba(255,140,200,0.25), rgba(255,200,240,0.05), transparent);
       filter: blur(80px);
       transform: translate(-50%, -50%);
@@ -42,14 +34,11 @@
       100% { transform: translate(-50%, -50%) scale(1.18); }
     }
 
-    /* Sparkle Particles */
     .sparkle {
       position: absolute;
-      width: 10px;
-      height: 10px;
-      background: #fff;
+      width: 10px; height: 10px;
+      background: #fff; opacity: 0.6;
       border-radius: 50%;
-      opacity: 0.6;
       animation: sparkle 4s infinite ease-in-out;
       filter: blur(1px);
     }
@@ -60,10 +49,8 @@
       100% { opacity: 0.2; transform: scale(0.6); }
     }
 
-    /* Profile Picture */
     .pfp {
-      width: 155px;
-      height: 155px;
+      width: 155px; height: 155px;
       border-radius: 50%;
       border: 5px solid #fff;
       box-shadow: 0 0 40px rgba(255, 130, 205, 0.8);
@@ -78,14 +65,13 @@
     }
 
     h1 {
-      font-size: 3rem;
       text-align: center;
+      font-size: 3rem;
       font-weight: 800;
       background: linear-gradient(90deg, #ff4fac, #ffa8dd);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 0 0 25px rgba(255, 140, 210, 0.5);
-      animation: fadeIn 1.2s ease;
     }
 
     .welcome {
@@ -94,15 +80,8 @@
       font-size: 1.15rem;
       max-width: 350px;
       color: #ff7fc4;
-      animation: fadeIn 1.7s ease;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Buttons Container */
     .links {
       width: 100%;
       max-width: 430px;
@@ -112,7 +91,6 @@
       gap: 18px;
     }
 
-    /* Main Big Buttons */
     .btn {
       width: 100%;
       padding: 1.15rem;
@@ -133,26 +111,21 @@
       transition: .25s;
     }
 
-    .btn:hover { transform: scale(1.06); box-shadow: 0 0 45px rgba(255, 120, 200, 1); }
+    .btn:hover { transform: scale(1.06); }
 
     .btn::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: -100%;
-      height: 100%;
-      width: 100%;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
       background: rgba(255,255,255,0.25);
       transform: skewX(-25deg);
       transition: .45s;
     }
-
     .btn:hover::before { left: 100%; }
 
-    /* Small Buttons */
     .small-row {
       display: flex;
-      justify-content: space-between;
       gap: 14px;
     }
 
@@ -160,15 +133,15 @@
       width: 50%;
       padding: 0.85rem;
       border-radius: 40px;
-      border: none;
-      background: linear-gradient(135deg, #ff6ac4, #ffb9ea);
-      color: white;
       font-size: 1rem;
       font-weight: 600;
+      background: linear-gradient(135deg, #ff6ac4, #ffb9ea);
+      color: white;
+      border: none;
       box-shadow: 0 0 20px rgba(255, 110, 200, 0.6);
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       cursor: pointer;
       transition: .25s;
@@ -183,14 +156,52 @@
       font-size: 0.95rem;
     }
 
-    /* MOBILE OPTIMIZATION */
+    /* Loading animation popup */
+    #loaderPopup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(255, 220, 245, 0.8);
+      backdrop-filter: blur(4px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 999;
+      animation: fadePop 0.3s ease;
+    }
+
+    @keyframes fadePop {
+      from { opacity: 0; transform: scale(1.05); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .loader-circle {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 6px solid #ff9bd6;
+      border-top: 6px solid white;
+      animation: spin 1s linear infinite;
+      margin-bottom: 18px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loader-text {
+      font-size: 1.3rem;
+      color: #ff4fac;
+      font-weight: 600;
+    }
+
     @media(max-width: 520px) {
       h1 { font-size: 2.4rem; }
-      .btn { font-size: 1.05rem; padding: 1rem; }
-      .small-btn { font-size: 0.9rem; padding: 0.75rem; }
+      .btn { padding: 1rem; font-size: 1.05rem; }
+      .small-btn { padding: 0.75rem; font-size: 0.9rem; }
       .pfp { width: 130px; height: 130px; }
-      .welcome { font-size: 1rem; }
-      .links { gap: 15px; }
     }
   </style>
 </head>
@@ -198,7 +209,6 @@
 <body>
   <div class="glow-bg"></div>
 
-  <!-- Sparkles -->
   <script>
     for (let i = 0; i < 22; i++) {
       let s = document.createElement('div');
@@ -210,11 +220,44 @@
     }
   </script>
 
+  <!-- Loading Popup -->
+  <div id="loaderPopup">
+    <div class="loader-circle"></div>
+    <div class="loader-text">Opening Roblox… 💖</div>
+  </div>
+
+  <script>
+    function openRobloxProfile() {
+      const appLink = "roblox://user?userid=1310283994";
+      const browserLink = "https://www.roblox.com/users/1310283994/profile";
+
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      const popup = document.getElementById("loaderPopup");
+      popup.style.display = "flex";
+
+      if (isMobile) {
+        // Try to open app
+        window.location.href = appLink;
+
+        // Fallback if app doesn't open
+        setTimeout(() => {
+          window.location.href = browserLink;
+        }, 1400);
+      } else {
+        // PC goes to browser
+        window.open(browserLink, "_blank");
+        popup.style.display = "none";
+      }
+    }
+  </script>
+
+
   <!-- Profile -->
-  <img class="pfp" src="https://p16-pu-sign-no.tiktokcdn-eu.com/tos-no1a-avt-0068c001-no/b8872396c51a72c4472840a8917cdbd8~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=10399&refresh_token=3012eb04&x-expires=1763337600&x-signature=s9Y9r%2F%2BFGcLmfHOJmiFDW9wrn3E%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=no1a" alt="pfp">
+  <img class="pfp" src="YOUR PROFILE PICTURE HERE" alt="pfp">
 
   <h1>QueenMelina 💓</h1>
-  <div class="welcome">Welcome to my World💖✨</div>
+  <div class="welcome">Welcome to my World 💖✨</div>
 
   <div class="links">
 
@@ -225,9 +268,10 @@
 
     <!-- Roblox Buttons -->
     <div class="small-row">
-      <button class="small-btn" onclick="window.open('https://www.roblox.com/users/1310283994/profile','_blank')">
+      <button class="small-btn" onclick="openRobloxProfile()">
         <i class="fa-solid fa-user"></i> Roblox Profile
       </button>
+
       <button class="small-btn" onclick="window.open('https://www.roblox.com/communities/32722697/Granded-Games#!/about','_blank')">
         <i class="fa-solid fa-people-group"></i> Roblox Group
       </button>
